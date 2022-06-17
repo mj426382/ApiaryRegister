@@ -1,0 +1,7 @@
+node_modules
+packages/frontend/node_modules
+packages/backend/node_modules
+packages/frontend/.pnpm-debug.log
+packages/backend/.pnpm-debug.log
+packages/frontend/build
+packages/backend/dist
