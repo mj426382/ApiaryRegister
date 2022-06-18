@@ -2,10 +2,6 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js"
-  },
   "keywords": [],
   "author": "mj426382",
   "license": "MIT",
@@ -15,7 +11,26 @@
     "mongoose": "^6.3.8"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "@types/node": "^18.0.0",
-    "typescript": "^4.7.3"
+    "@typescript-eslint/eslint-plugin": "~5.8.0",
+    "@typescript-eslint/parser": "~5.8.1",
+    "chai": "^4.3.6",
+    "eslint": "^7.32.0",
+    "mocha": "~9.1.3",
+    "prettier": "^2.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3",
+    "tsconfig-paths": "^3.9.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "mocha ./test",
+    "lint": "yarn lint:prettier --check && yarn lint:eslint",
+    "lint:fix": "yarn lint:prettier --write && yarn lint:eslint --fix",
+    "lint:eslint": "eslint './{src,test}/**/*.{ts,tsx}'",
+    "lint:prettier": "yarn prettier './{src,test}/**/*.{ts,tsx}'"
   }
 }
