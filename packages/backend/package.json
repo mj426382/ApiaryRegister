@@ -10,6 +10,7 @@
   "author": "mj426382",
   "license": "MIT",
   "dependencies": {
+    "@fastify/cors": "^8.0.0",
     "fastify": "^4.0.3",
     "mongoose": "^6.3.8"
   },

@@ -16,10 +16,10 @@ export const ApiarySchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	pass: {
+	date: {
 		type: Date,
 		required: true,
 	}
 })
-export const Apiary = mongoose.model('apiary', ApiarySchema)
+export const Apiary = mongoose.model('apiaryTesting', ApiarySchema)
 Apiary.createIndexes()

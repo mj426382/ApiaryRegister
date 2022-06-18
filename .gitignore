@@ -5,3 +5,4 @@ packages/frontend/.pnpm-debug.log
 packages/backend/.pnpm-debug.log
 packages/frontend/build
 packages/backend/dist
+.pnpm-debug.log

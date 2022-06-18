@@ -1,7 +1,11 @@
 import fastify from 'fastify'
+import fastifyCors from '@fastify/cors'
 import { Apiary } from './database'
 
 const server = fastify()
+server.register(fastifyCors, {
+    origin: '*'
+})
 
 server.get('/apiary', async (_, reply) => {
     try {
@@ -13,17 +17,25 @@ server.get('/apiary', async (_, reply) => {
 })
 
 interface AddApiaryBody {
-    apiaryName: string
-    controlNumber?: number
+    name: string
+    number?: number
 }
 
 server.post<{Body: AddApiaryBody}>('/apiary', async (request, reply) => {
     const { body } = request
-    const timestamp = new Date()
     try {
+        const apiary = new Apiary({
+            ...body,
+            date: new Date()
+        })
+        if (!apiary) {
+            return reply.code(409)
+        }
+        await apiary.save()
         return reply.code(200)
     } catch(err) {
-        return reply.code(404).send()
+        console.log(err)
+        return reply.code(500).send()
     }
 })
 
