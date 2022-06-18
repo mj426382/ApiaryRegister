@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
-
-interface Apiary {
-    name: string
-    date: Date
-    number: number
-}
+import { Apiary } from './types'
 
 interface ApiaryResponse {
     apiaries: Apiary[]
@@ -31,14 +26,14 @@ const Home = () => {
     return status 
     ? <p>Cannot fetch data</p> 
     : (
-        <div style={{height: '400px', width: '800px'}}>
+        <div style={{height: '600px', width: '800px', margin: 'auto'}}>
         <DataGrid
             rows={apiaries.map((value, id) => {
                 return {...value, id}
             })}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
             checkboxSelection
         />
         </div>

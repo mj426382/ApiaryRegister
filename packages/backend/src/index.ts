@@ -32,7 +32,7 @@ server.post<{Body: AddApiaryBody}>('/apiary', async (request, reply) => {
             return reply.code(409)
         }
         await apiary.save()
-        return reply.code(200)
+        return reply.code(200).send()
     } catch(err) {
         console.log(err)
         return reply.code(500).send()
