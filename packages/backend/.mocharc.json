@@ -1,0 +1,6 @@
+{
+  "spec": "test/*.test.ts",
+  "require": ["ts-node/register/transpile-only", "tsconfig-paths/register"],
+  "extension": "ts",
+  "timeout": 10000
+}
