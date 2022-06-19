@@ -1,7 +1,7 @@
 import React from 'react'
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import { DateFormat } from './types'
+import { DateFormat } from '../types'
 import { TextField } from '@mui/material'
 
 interface DatePickerProps {

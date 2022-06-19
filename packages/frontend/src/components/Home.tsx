@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
-import { Apiary, DateFormat } from './types'
+import { Apiary, DateFormat } from '../types'
 import DatePicker from './DatePicker'
+import { BACKEND_URL } from '../globals'
 
 interface ApiaryResponse {
   apiaries: Apiary[]
@@ -24,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchApiaries = async () => {
-      const apiariesRequest = await fetch('http://127.0.0.1:8080/apiary')
+      const apiariesRequest = await fetch(`${BACKEND_URL}/apiary`)
       if (!apiariesRequest.ok) {
         setStatus('Cannot fetch apiaries')
         return

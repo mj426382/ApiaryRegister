@@ -1,7 +1,6 @@
 import { build } from './server'
 
 const PORT = parseInt(process.env.PORT ?? '8080')
-// const ADDRESS = process.env.ADDRESS
 
 const startServer = async () => {
   const server = await build()

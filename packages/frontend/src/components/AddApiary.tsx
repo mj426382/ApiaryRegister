@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Alert, Button, TextField } from '@mui/material'
+import { BACKEND_URL } from '../globals'
 
 const AddApiary = () => {
   const [name, setName] = useState<string | undefined>(undefined)
@@ -26,7 +27,7 @@ const AddApiary = () => {
       setError(true)
       return
     }
-    const response = await fetch('http://127.0.0.1:8080/apiary', {
+    const response = await fetch(`${BACKEND_URL}/apiary`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
