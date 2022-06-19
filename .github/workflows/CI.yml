@@ -13,12 +13,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node }}
     - run: npm i -g pnpm@7.1.9
-    - run: pnpm install --frozen-lockfile --strict-peer-dependencies
+    - run: npm i -g prettier@2.1.2
+    - run: pnpm install
     - run: pnpm run lint
     - run: pnpm run build
     - run: pnpm run test
