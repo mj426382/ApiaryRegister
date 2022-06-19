@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
-import { Apiary } from './types'
+import { Apiary, DateFormat } from './types'
+import DatePicker from './DatePicker'
 
 interface ApiaryResponse {
   apiaries: Apiary[]
@@ -8,7 +9,18 @@ interface ApiaryResponse {
 
 const Home = () => {
   const [apiaries, setApiaries] = useState<Apiary[]>([])
+  const [filteredApiaries, setFilteredApiaries] = useState<Apiary[]>([])
   const [status, setStatus] = useState<string | undefined>(undefined)
+  const [from, setFrom] = useState<DateFormat>(null)
+  const [to, setTo] = useState<DateFormat>(null)
+
+  useEffect(() => {
+    const filteredApiaries = apiaries.filter(({ date }) => {
+      const timestamp = new Date(date).getTime()
+      return (!to || to.valueOf() >= timestamp) && (!from || from.valueOf() <= timestamp)
+    })
+    setFilteredApiaries(filteredApiaries)
+  }, [from, to, apiaries])
 
   useEffect(() => {
     const fetchApiaries = async () => {
@@ -26,15 +38,20 @@ const Home = () => {
   return status ? (
     <p>Cannot fetch data</p>
   ) : (
-    <div style={{ height: '600px', width: '800px', margin: 'auto' }}>
+    <div style={{ height: '600px', width: '1000px', margin: 'auto' }}>
+      <DatePicker date={from} setDate={setFrom} label={'From'} />
+      <DatePicker date={to} setDate={setTo} label={'To'} />
       <DataGrid
-        rows={apiaries.map((value, id) => {
-          return { ...value, id }
+        rows={filteredApiaries.map((value, id) => {
+          return {
+            ...value,
+            id,
+            date: new Date(value.date).toUTCString(),
+          }
         })}
         columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
-        checkboxSelection
+        pageSize={9}
+        rowsPerPageOptions={[9]}
       />
     </div>
   )
@@ -43,7 +60,7 @@ const Home = () => {
 export default Home
 
 const columns: GridColDef[] = [
-  { field: 'name', headerName: 'Name', width: 150 },
-  { field: 'date', headerName: 'Date', width: 150 },
-  { field: 'number', headerName: 'Number', width: 150 },
+  { field: 'name', headerName: 'Name', width: 350 },
+  { field: 'date', headerName: 'Date', width: 300 },
+  { field: 'number', headerName: 'Number', width: 350 },
 ]

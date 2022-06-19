@@ -3,3 +3,5 @@ export interface Apiary {
   date: Date
   number: number
 }
+
+export type DateFormat = Date | ((prevState: Date) => Date) | null
