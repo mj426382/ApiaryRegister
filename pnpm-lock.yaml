@@ -5,10 +5,8 @@ specifiers:
   wsrun: ^5.2.1
 
 dependencies:
-  wsrun: 5.2.4
-
-devDependencies:
   prettier: 2.1.2
+  wsrun: 5.2.4
 
 packages:
 
@@ -306,7 +304,7 @@ packages:
     resolution: {integrity: sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
+    dev: false
 
   /pump/3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
