@@ -14,8 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: npm i -g pnpm@7.1.9
-    - run: npm i -g prettier
     - run: pnpm install
-    - run: pnpm run lint
     - run: pnpm run build
     - run: pnpm run test
