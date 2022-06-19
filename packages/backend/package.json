@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@fastify/cors": "^8.0.0",
+    "dotenv": "^16.0.1",
     "fastify": "^4.0.3",
     "mongoose": "^6.3.8"
   },
@@ -21,12 +22,12 @@
     "mocha": "~9.1.3",
     "prettier": "^2.0.5",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.7.3"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
+    "start": "node dist/src/server.js",
     "test": "mocha ./test",
     "lint": "yarn lint:prettier --check && yarn lint:eslint",
     "lint:fix": "yarn lint:prettier --write && yarn lint:eslint --fix",
