@@ -1,3 +1,5 @@
+import { Apiary } from './types'
+
 export const isToday = (someDate: Date, today: Date) => {
   return (
     someDate.getDate() == today.getDate() &&
@@ -19,3 +21,16 @@ export const getControlSumDigits = (numberWithoutSum: string) => {
 }
 
 export const formatDate = (date: Date) => date.toISOString().split('T')[0].replace(/-/g, '')
+
+export const getNewApiaryNumber = async (number: string | undefined, currentDate: Date, apiaries: Apiary[]) => {
+  const formattedDate = formatDate(currentDate)
+
+  const todayApiaries = apiaries.filter(({ date }) => isToday(date, currentDate)).length
+
+  const overridenNumber = number ?? todayApiaries + 1
+  const overridenNumberDigits = overridenNumber.toString().length
+
+  const leadingZeros = new Array(5 - overridenNumberDigits).fill('0').join('')
+
+  return formattedDate + leadingZeros + overridenNumber
+}

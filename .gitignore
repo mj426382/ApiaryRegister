@@ -6,3 +6,4 @@ packages/backend/.pnpm-debug.log
 packages/frontend/build
 packages/backend/dist
 .pnpm-debug.log
+packages/backend/.env
