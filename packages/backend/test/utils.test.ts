@@ -1,9 +1,9 @@
 import { expect } from 'chai'
-import { getControlSum, isToday, formatDate, getControlSumDigits, getNewApiaryNumber } from '../src/utils';
+import { getControlSum, isToday, formatDate, getControlSumDigits, getNewApiaryNumber } from '../src/utils'
 
 const DAY = 86400 * 1000
 
-describe('utils.ts', async() => {
+describe('utils.ts', async () => {
   const someDate = new Date(0) // 01.01.1970 00:00
   const apiaries = [{ number: '1', date: someDate, name: 'test' }]
 
@@ -43,21 +43,21 @@ describe('utils.ts', async() => {
     })
   })
 
-  describe('getNewApiaryNumber', async() => {
-    it('first apiary without number', async() => {
+  describe('getNewApiaryNumber', async () => {
+    it('first apiary without number', async () => {
       expect(await getNewApiaryNumber(undefined, someDate, [])).to.equal('1970010100001')
     })
 
-    it('first apiary with number', async() => {
+    it('first apiary with number', async () => {
       expect(await getNewApiaryNumber('12345', someDate, [])).to.equal('1970010112345')
     })
 
-    it('second apiary without number', async() => {
+    it('second apiary without number', async () => {
       expect(await getNewApiaryNumber(undefined, someDate, apiaries)).to.equal('1970010100002')
     })
 
-    it('second apiary in other day without number', async() => {
-      expect(await getNewApiaryNumber(undefined, someDate, apiaries)).to.equal('1970010100001')
+    it('second apiary in other day without number', async () => {
+      expect(await getNewApiaryNumber(undefined, new Date(DAY), apiaries)).to.equal('1970010200001')
     })
   })
 })
