@@ -54,3 +54,23 @@ pnpm start
 ```
 
 In the backend folder `packages/backend` and after that in the `packages/frontend`
+
+## Testing
+
+To run tests just run:
+
+```
+pnpm test
+```
+
+In the root folder of project.
+
+## Linter
+
+To run linter just run:
+
+```
+pnpm lint
+```
+
+In the root folder of project.
