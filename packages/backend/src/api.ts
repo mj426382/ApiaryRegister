@@ -10,11 +10,13 @@ interface AddApiaryBody {
 }
 
 export const addApi = (server: FastifyInstance) => {
-  server.get('/apiary', async (_, reply) => {
+  server.get('/apiary', async (request, reply) => {
+    request.log.info(request)
     return reply.code(200).send({ apiaries })
   })
 
   server.post<{ Body: AddApiaryBody }>('/apiary', async (request, reply) => {
+    request.log.info(request)
     const { number, name } = request.body
     const currentDate = new Date()
     const resultNumber = await getNewApiaryNumber(number, currentDate, apiaries)
