@@ -24,7 +24,7 @@ To run quickly just run:
 docker compose up
 ```
 
-Keep ports 3000 and 8000 free for app.
+Remember to keep used ports free for app and fill .env files.
 
 To run docker in a background run:
 
