@@ -1,4 +1,5 @@
 import { build } from './server'
+import 'dotenv/config'
 
 const PORT = parseInt(process.env.PORT ?? '8080')
 const ADDRESS = process.env.ADDRESS
