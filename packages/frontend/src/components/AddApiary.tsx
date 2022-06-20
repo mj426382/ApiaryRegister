@@ -52,6 +52,7 @@ const AddApiary = () => {
         onChange={(e) => onNumberChanged(e.target.value)}
       />
       {status && <Alert severity={error ? 'error' : 'success'}>{status}</Alert>}
+      <br />
       <Button variant="contained" onClick={() => submitApiary()}>
         Add
       </Button>
