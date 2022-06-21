@@ -76,3 +76,17 @@ pnpm lint
 ```
 
 In the root folder of project.
+
+## Integration test
+
+To run integration tests you need to run backend and frontend and fill `.env` file with the frontend address.
+
+### Integration-tests .env
+
+**FRONTEND_URL** - url of running frontend
+
+After that run:
+
+```
+pnpm start
+```
