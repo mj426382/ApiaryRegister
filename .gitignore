@@ -8,3 +8,5 @@ packages/backend/dist
 .pnpm-debug.log
 packages/backend/.env
 packages/frontend/.env
+packages/integration-tests/.env
+packages/integration-tests/playwright-report
