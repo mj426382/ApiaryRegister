@@ -27,6 +27,12 @@ const AddApiary = () => {
       setError(true)
       return
     }
+    if (number && !Number.isInteger(Number(number))) {
+      setStatus('Number should be integer value')
+      setError(true)
+      return
+    }
+
     const response = await fetch(`${BACKEND_URL}/apiary`, {
       method: 'POST',
       headers: {

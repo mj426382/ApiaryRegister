@@ -19,6 +19,32 @@ describe('utils.ts', async () => {
     expect(response.body).to.equal(JSON.stringify({ apiaries: [] }))
   })
 
+  it('cannot add apiery with not number value', async () => {
+    const response  = await app.inject({
+      method: 'POST',
+      url: '/apiary',
+      payload: {
+        name: 'test',
+        number: 'test'
+      },
+    })
+
+    expect(response.statusCode).to.equal(422)
+  })
+
+  it('cannot add apiery with not integer value', async () => {
+    const response  = await app.inject({
+      method: 'POST',
+      url: '/apiary',
+      payload: {
+        name: 'test',
+        number: '1.2'
+      },
+    })
+
+    expect(response.statusCode).to.equal(422)
+  })
+
   it('has one apiary after adding without number', async () => {
     const time = new Date()
     await app.inject({
