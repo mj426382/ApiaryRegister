@@ -20,12 +20,12 @@ describe('utils.ts', async () => {
   })
 
   it('cannot add apiery with not number value', async () => {
-    const response  = await app.inject({
+    const response = await app.inject({
       method: 'POST',
       url: '/apiary',
       payload: {
         name: 'test',
-        number: 'test'
+        number: 'test',
       },
     })
 
@@ -33,12 +33,12 @@ describe('utils.ts', async () => {
   })
 
   it('cannot add apiery with not integer value', async () => {
-    const response  = await app.inject({
+    const response = await app.inject({
       method: 'POST',
       url: '/apiary',
       payload: {
         name: 'test',
-        number: '1.2'
+        number: '1.2',
       },
     })
 
