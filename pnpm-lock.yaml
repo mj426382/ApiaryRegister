@@ -130,11 +130,9 @@ importers:
     specifiers:
       '@playwright/test': ^1.22.2
       '@types/node': ^18.0.0
-      crypto: ^1.0.1
       dotenv: ^16.0.1
       ts-node: ^10.8.1
     dependencies:
-      crypto: 1.0.1
       dotenv: 16.0.1
     devDependencies:
       '@playwright/test': 1.22.2
@@ -4979,11 +4977,6 @@ packages:
   /crypto-random-string/2.0.0:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
     engines: {node: '>=8'}
-    dev: false
-
-  /crypto/1.0.1:
-    resolution: {integrity: sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==}
-    deprecated: This package is no longer supported. It's now a built-in Node module. If you've depended on crypto, you should switch to the one that's built-in.
     dev: false
 
   /css-blank-pseudo/3.0.3_postcss@8.4.14:
